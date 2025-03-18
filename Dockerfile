@@ -17,7 +17,7 @@ WORKDIR /app
 
 COPY --from=builder-bun /app/backend .
 RUN go mod download
-RUN go build -tags production -o longhabit
+RUN CGO_ENABLED=0 go build -tags production -o longhabit
 
 # Deploy binary
 FROM alpine:latest AS runner

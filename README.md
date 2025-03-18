@@ -14,7 +14,7 @@ Try the live version: https://longhabit.com
 ## ✨ Key Features
 
 ### Backend Architecture
-- Running the latest version of Pocketbase (v0.25).
+- Running the latest version of Pocketbase (v0.26).
 - Single-binary build. Uses Go's "embed" package to embed the React front-end as a file system inside the compiled binary.
 - PocketBase is installed as a Go package and used as a framework. The project makes use of many extension features including:
   - Custom hooks and middleware
@@ -66,7 +66,7 @@ Try the live version: https://longhabit.com
   - [Zod](https://zod.dev/?id=table-of-contents) - Typescript schema validation
   - [Date-fns](https://date-fns.org/docs/Getting-Started) - Date manipulation library
 - **Backend**
-  - [Go 1.23](https://go.dev/doc/) - Backend language
+  - [Go](https://go.dev/doc/) - Backend language
   - [PocketBase](https://pocketbase.io/docs/) - Backend framework
   - [Pond](https://github.com/alitto/pond) - Worker pool implementation in Go
 - **Deployment**
