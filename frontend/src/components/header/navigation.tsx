@@ -6,7 +6,7 @@ import { DefaultUserAvatarLogo, LongHabitMainLogo } from '../shared/logos'
 export default function Navigation() {
   const { user } = useAuth()
   const { avatar, id: userId, verified } = user ?? {}
-  const location = useLocation() // solves issue with persisting avatar after logout, but possibly not for much longer ? see: https://github.com/TanStack/router/issues/3110#issuecomment-2645886152
+  const location = useLocation()
 
   return (
     <nav className='flex items-center justify-between'>
