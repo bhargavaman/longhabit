@@ -13,6 +13,7 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { useEffect } from 'react'
+import { z } from 'zod'
 import Spinner from './components/shared/spinner'
 import { setTheme } from './lib/set-theme'
 import ForgotPasswordPage from './pages/auth/forgot-password'
@@ -68,6 +69,10 @@ const rootRoute = createRootRouteWithContext<RootContext>()({
   component: RootLayoutWithTitle,
   notFoundComponent: NotFoundPage,
   errorComponent: ErrorPage,
+  validateSearch: z.object({
+    logout: z.boolean().optional()
+  }),
+
   loader: ({ context: { queryClient } }) =>
     queryClient.ensureQueryData(userQueryOptions),
   beforeLoad: async ({ context: { queryClient } }) => {
