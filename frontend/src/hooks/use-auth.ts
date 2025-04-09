@@ -32,7 +32,7 @@ export default function useAuth() {
     logoutApi()
     queryClient.clear()
     unsubscribeFromUserChanges()
-    router.navigate({ to: '/' })
+    router.navigate({ to: '/', search: () => ({ logout: true }) })
   }
 
   const subscribeUserChangeCallback = async (record: User) => {
