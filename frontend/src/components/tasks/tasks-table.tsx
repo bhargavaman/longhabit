@@ -77,13 +77,15 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => {
       const { dateText, daysText, taskIsLate } = getTaskStatusLabels(
         row.original.repeatGoalEnabled,
-        row.original.daysRepeat,
+        Number(row.original.daysRepeat),
         row.original.history
       )
 
       return (
         <div className='text-right'>
-          <p className='text-sm font-light text-muted-foreground'>{dateText}</p>
+          <p className='text-muted-foreground text-sm font-light whitespace-nowrap'>
+            {dateText}
+          </p>
           <p className={cn('text-xs', taskIsLate ? 'text-destructive' : '')}>
             {daysText}
           </p>
@@ -146,7 +148,7 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
           onValueChange={setCategoryFilter}>
           <SelectTrigger
             aria-label='Filter by category'
-            className='w-32 select-none rounded-l-none border-l-0 focus:ring-0 focus-visible:ring-0'
+            className='w-32 rounded-l-none border-l-0 select-none focus:ring-0 focus-visible:ring-0'
             onKeyDown={(event) =>
               event.key === 'Escape' && setCategoryFilter('All')
             }>
@@ -202,7 +204,7 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  className='cursor-pointer border-none hover:bg-popover/50'
+                  className='hover:bg-popover/50 cursor-pointer border-none'
                   data-state={row.getIsSelected() && 'selected'}
                   onClick={() => navigate({ to: `/tasks/${row.original.id}` })}>
                   {row.getVisibleCells().map((cell, index, array) => (

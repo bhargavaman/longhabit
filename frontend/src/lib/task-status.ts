@@ -22,7 +22,7 @@ export function getTaskStatusLabels(
 
   let dateText, daysText
 
-  if (repeatGoalEnabled) {
+  if (repeatGoalEnabled && daysRepeat > 0) {
     dateText = `Next ${format(nextDate, 'dd MMM yyyy')}`
 
     const numDaysAbs = Math.abs(dueInDays)
@@ -74,11 +74,11 @@ export function sortTaskStatusColumn(rowA: Row<Task>, rowB: Row<Task>) {
   if (rowA.original.repeatGoalEnabled) {
     const dateA = getNextDueDate(
       rowA.original.history,
-      rowA.original.daysRepeat
+      Number(rowA.original.daysRepeat)
     )
     const dateB = getNextDueDate(
       rowB.original.history,
-      rowB.original.daysRepeat
+      Number(rowB.original.daysRepeat)
     )
     return dateA.getTime() - dateB.getTime()
   }

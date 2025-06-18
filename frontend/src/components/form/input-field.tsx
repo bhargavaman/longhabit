@@ -9,23 +9,38 @@ import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/shadcn'
 import { FieldValues, Path, UseFormReturn } from 'react-hook-form'
 
+type InputFieldProps<T extends FieldValues> = {
+  form: UseFormReturn<T>
+  name: Path<T>
+  label?: string
+  disabled?: boolean
+  hidden?: boolean
+} & (
+  | {
+      type?: Exclude<React.HTMLInputTypeAttribute, 'number'>
+      min?: never
+      max?: never
+    }
+  | {
+      type: 'number'
+      min?: number
+      max?: number
+    }
+)
+
 export default function InputField<T extends FieldValues>({
   form,
   name,
   label,
   type = 'text',
   disabled = false,
-  hidden = false
-}: {
-  form: UseFormReturn<T>
-  name: Path<T>
-  label?: string
-  type?: React.HTMLInputTypeAttribute
-  disabled?: boolean
-  hidden?: boolean
-}) {
+  hidden = false,
+  min,
+  max
+}: InputFieldProps<T>) {
   label ??=
     name.length < 2 ? name : name[0].toUpperCase() + name.slice(1).toLowerCase()
+
   return (
     <FormField
       control={form.control}
@@ -37,7 +52,13 @@ export default function InputField<T extends FieldValues>({
             <FormMessage className='text-xs font-normal' />
           </div>
           <FormControl>
-            <Input type={type} {...field} disabled={disabled} />
+            <Input
+              type={type}
+              {...field}
+              disabled={disabled}
+              min={min}
+              max={max}
+            />
           </FormControl>
         </FormItem>
       )}

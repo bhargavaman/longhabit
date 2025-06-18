@@ -12,7 +12,7 @@ export default function HomePage() {
         <h2 className='text-2xl font-semibold'>
           The perfect tracker for tasks that don&apos;t get daily attention
         </h2>
-        <p className='text-xl font-light text-muted-foreground'>
+        <p className='text-muted-foreground text-xl font-light'>
           Daily habits are easy to remember, but what about those important
           tasks that come up every few weeks or months? Long Habit helps you
           stay on top of these easily forgotten but crucial routines.
@@ -28,11 +28,11 @@ export default function HomePage() {
         </Button>
       </section>
 
-      <section className='w-full space-y-2 rounded-lg bg-popover p-4'>
+      <section className='bg-popover w-full space-y-2 rounded-lg p-4'>
         <h2 className='flex items-center gap-x-2 text-2xl font-semibold'>
-          <ListTodoIcon className='size-6 text-primary/80' /> How it Works
+          <ListTodoIcon className='text-primary/80 size-6' /> How it Works
         </h2>
-        <ol className='list-decimal space-y-2 pl-4 text-sm text-muted-foreground'>
+        <ol className='text-muted-foreground list-decimal space-y-2 pl-4 text-sm'>
           <li>Add tasks you want to track to the list</li>
           <li>Set a goal. How often do you want to repeat the task?</li>
           <li>Mark tasks as completed on the days you do them</li>
@@ -42,66 +42,66 @@ export default function HomePage() {
         </ol>
       </section>
 
-      <section className='w-full space-y-4 rounded-lg bg-popover p-4'>
+      <section className='bg-popover w-full space-y-4 rounded-lg p-4'>
         <h2 className='flex items-center gap-x-2 text-2xl font-semibold'>
-          <BrainCircuitIcon className='size-6 text-primary/80' /> Smart Features
+          <BrainCircuitIcon className='text-primary/80 size-6' /> Smart Features
         </h2>
         <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
           <div className='space-y-1'>
             <h4 className='font-semibold'>Simple Tracking</h4>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-muted-foreground text-sm'>
               See when you last completed each task and how many days have
               passed since
             </p>
           </div>
           <div className='space-y-1'>
             <h4 className='font-semibold'>Flexible Goals</h4>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-muted-foreground text-sm'>
               Set up intervals for each recurring task
             </p>
           </div>
           <div className='space-y-1'>
             <h4 className='font-semibold'>Smart Reminders</h4>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-muted-foreground text-sm'>
               Receive customizable notifications by email
             </p>
           </div>
           <div className='space-y-1'>
             <h4 className='font-semibold'>Easy Navigation</h4>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-muted-foreground text-sm'>
               Sort, search, filter and group tasks by category
             </p>
           </div>
         </div>
       </section>
 
-      <section className='mb-16 w-full space-y-4 rounded-lg bg-popover p-4'>
+      <section className='bg-popover mb-16 w-full space-y-4 rounded-lg p-4'>
         <h2 className='flex items-center gap-x-2 text-2xl font-semibold'>
-          <CircleHelpIcon className='size-6 text-primary/80' /> Why Use Long
+          <CircleHelpIcon className='text-primary/80 size-6' /> Why Use Long
           Habit?
         </h2>
         <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
           <div className='space-y-1'>
             <h4 className='font-semibold'>Minimalist Design</h4>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-muted-foreground text-sm'>
               Light, fast and focused on the essential
             </p>
           </div>
           <div className='space-y-1'>
             <h4 className='font-semibold'>Completely Free</h4>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-muted-foreground text-sm'>
               No ads, no spam, no e-begging
             </p>
           </div>
           <div className='space-y-1'>
             <h4 className='font-semibold'>Privacy First</h4>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-muted-foreground text-sm'>
               Open source and self-hostable
             </p>
           </div>
           <div className='space-y-1'>
             <h4 className='font-semibold'>Access Anywhere</h4>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-muted-foreground text-sm'>
               Web-based, use from any device, anytime
             </p>
           </div>

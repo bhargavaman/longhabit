@@ -1,7 +1,7 @@
 import { Outlet } from '@tanstack/react-router'
-import { Toaster } from 'sonner'
 import Footer from './components/footer/footer'
 import Navigation from './components/header/navigation'
+import { Toaster } from './components/ui/sonner'
 
 export default function RootLayout() {
   return (

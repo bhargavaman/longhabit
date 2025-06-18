@@ -30,12 +30,12 @@ export default function ScrollToTopButton({
       <Button
         variant='link'
         className={cn(
-          'mx-auto mb-2 size-10 items-center gap-1 rounded-full p-0 transition-all duration-150 ease-in-out hover:bg-popover',
+          'hover:bg-popover mx-auto mb-2 size-10 items-center gap-1 rounded-full p-0 transition-all duration-150 ease-in-out',
           className
         )}
         disabled={!showButton}
         onClick={scrollToTop}>
-        <ChevronUpIcon className='scale-150 text-foreground' />
+        <ChevronUpIcon className='text-foreground scale-150' />
       </Button>
     )
   )

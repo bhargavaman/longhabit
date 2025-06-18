@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import path from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
@@ -7,7 +8,10 @@ export default defineConfig(({ mode }) => {
   const backendUrl = env.VITE_BACKEND_URL || 'http://localhost:8090'
 
   return {
-    plugins: [react({ babel: { plugins: ['babel-plugin-react-compiler'] } })],
+    plugins: [
+      react({ babel: { plugins: ['babel-plugin-react-compiler'] } }),
+      tailwindcss()
+    ],
     build: {
       outDir: './backend/dist',
       emptyOutDir: true,

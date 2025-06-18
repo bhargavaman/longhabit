@@ -35,7 +35,7 @@ import { cn } from '@/lib/shadcn'
 import { Task, taskSchema } from '@/schemas/task-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link, useNavigate } from '@tanstack/react-router'
-import { useForm } from 'react-hook-form'
+import { Resolver, useForm } from 'react-hook-form'
 
 export default function TaskForm({
   selectedTask
@@ -50,14 +50,14 @@ export default function TaskForm({
   const { categories } = useTasks()
 
   const form = useForm<Task>({
-    resolver: zodResolver(taskSchema),
+    resolver: zodResolver(taskSchema) as Resolver<Task>,
     defaultValues: {
       name: selectedTask ? selectedTask.name : '',
       description: selectedTask ? selectedTask.description : '',
       category: selectedTask ? selectedTask.category : '',
       repeatGoalEnabled: selectedTask ? selectedTask.repeatGoalEnabled : false,
-      daysRepeat: selectedTask ? selectedTask.daysRepeat : 7,
-      daysRemind: (selectedTask && selectedTask.daysRemind) || '',
+      daysRepeat: selectedTask?.daysRepeat || '',
+      daysRemind: selectedTask?.daysRemind || '',
       remindByEmail: selectedTask ? selectedTask.remindByEmail : false,
       history: selectedTask ? selectedTask.history : []
     }
@@ -109,6 +109,7 @@ export default function TaskForm({
           type='number'
           name='daysRepeat'
           label='Repeat every x days'
+          min={1}
           disabled={!form.watch('repeatGoalEnabled')}
         />
 
@@ -125,6 +126,7 @@ export default function TaskForm({
           type='number'
           name='daysRemind'
           label='Remind every x days'
+          min={1}
           hidden={!remindByEmailEnabled}
           disabled={
             !remindByEmailEnabled ||
@@ -148,7 +150,7 @@ export default function TaskForm({
             </FormItem>
           )}
         />
-        <SheetFooter className='mt-4 grid w-full grid-cols-2 gap-4 sm:space-x-0'>
+        <SheetFooter className='mt-4 grid w-full grid-cols-2 gap-4 px-0 sm:space-x-0'>
           <Button
             type='submit'
             disabled={!fieldsEdited}

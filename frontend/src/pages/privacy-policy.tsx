@@ -5,7 +5,7 @@ export default function PrivacyPolicyPage() {
         <h1 className='text-4xl font-bold'>Privacy Policy</h1>
       </section>
 
-      <section className='space-y-2 text-sm text-muted-foreground'>
+      <section className='text-muted-foreground space-y-2 text-sm'>
         <p>
           This Privacy Policy describes Our policies and procedures on the
           collection, use and disclosure of Your information when You use the
@@ -19,10 +19,10 @@ export default function PrivacyPolicyPage() {
           accordance with this Privacy Policy.
         </p>
 
-        <h2 className='text-2xl font-semibold text-foreground'>
+        <h2 className='text-foreground text-2xl font-semibold'>
           Interpretation and Definitions
         </h2>
-        <h3 className='text-xl font-light text-muted-foreground'>
+        <h3 className='text-muted-foreground text-xl font-light'>
           Interpretation
         </h3>
         <p>
@@ -32,7 +32,7 @@ export default function PrivacyPolicyPage() {
           singular or in plural.
         </p>
 
-        <h3 className='text-xl font-light text-muted-foreground'>
+        <h3 className='text-muted-foreground text-xl font-light'>
           Definitions
         </h3>
         <p>For the purposes of this Privacy Policy:</p>
@@ -96,13 +96,13 @@ export default function PrivacyPolicyPage() {
           </li>
         </ul>
 
-        <h2 className='text-2xl font-semibold text-foreground'>
+        <h2 className='text-foreground text-2xl font-semibold'>
           Collecting and Using Your Personal Data
         </h2>
-        <h3 className='text-xl font-light text-muted-foreground'>
+        <h3 className='text-muted-foreground text-xl font-light'>
           Types of Data Collected
         </h3>
-        <h4 className='text-base font-semibold text-foreground'>
+        <h4 className='text-foreground text-base font-semibold'>
           Personal Data
         </h4>
         <p>
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
           <li>Usage Data</li>
         </ul>
 
-        <h4 className='text-base font-semibold text-foreground'>Usage Data</h4>
+        <h4 className='text-foreground text-base font-semibold'>Usage Data</h4>
         <p>Usage Data is collected automatically when using the Service.</p>
         <p>
           Usage Data may include information such as Your Device&apos;s Internet
@@ -139,7 +139,7 @@ export default function PrivacyPolicyPage() {
           mobile device.
         </p>
 
-        <h4 className='text-base font-semibold text-foreground'>
+        <h4 className='text-foreground text-base font-semibold'>
           Tracking Technologies and Cookies
         </h4>
         <p>
@@ -212,7 +212,7 @@ export default function PrivacyPolicyPage() {
           </li>
         </ul>
 
-        <h3 className='text-xl font-light text-muted-foreground'>
+        <h3 className='text-muted-foreground text-xl font-light'>
           Use of Your Personal Data
         </h3>
         <p>The Company may use Personal Data for the following purposes:</p>
@@ -310,7 +310,7 @@ export default function PrivacyPolicyPage() {
           </li>
         </ul>
 
-        <h3 className='text-xl font-light text-muted-foreground'>
+        <h3 className='text-muted-foreground text-xl font-light'>
           Retention of Your Personal Data
         </h3>
         <p>
@@ -329,7 +329,7 @@ export default function PrivacyPolicyPage() {
           to retain this data for longer time periods.
         </p>
 
-        <h3 className='text-xl font-light text-muted-foreground'>
+        <h3 className='text-muted-foreground text-xl font-light'>
           Transfer of Your Personal Data
         </h3>
         <p>
@@ -353,7 +353,7 @@ export default function PrivacyPolicyPage() {
           including the security of Your data and other personal information.
         </p>
 
-        <h3 className='text-xl font-light text-muted-foreground'>
+        <h3 className='text-muted-foreground text-xl font-light'>
           Delete Your Personal Data
         </h3>
         <p>
@@ -376,10 +376,10 @@ export default function PrivacyPolicyPage() {
           when we have a legal obligation or lawful basis to do so.
         </p>
 
-        <h3 className='text-xl font-light text-muted-foreground'>
+        <h3 className='text-muted-foreground text-xl font-light'>
           Disclosure of Your Personal Data
         </h3>
-        <h4 className='text-base font-semibold text-foreground'>
+        <h4 className='text-foreground text-base font-semibold'>
           Business Transactions
         </h4>
         <p>
@@ -389,7 +389,7 @@ export default function PrivacyPolicyPage() {
           Privacy Policy.
         </p>
 
-        <h4 className='text-base font-semibold text-foreground'>
+        <h4 className='text-foreground text-base font-semibold'>
           Law enforcement
         </h4>
         <p>
@@ -398,7 +398,7 @@ export default function PrivacyPolicyPage() {
           requests by public authorities (e.g. a court or a government agency).
         </p>
 
-        <h4 className='text-base font-semibold text-foreground'>
+        <h4 className='text-foreground text-base font-semibold'>
           Other legal requirements
         </h4>
         <p>
@@ -418,7 +418,7 @@ export default function PrivacyPolicyPage() {
           <li>Protect against legal liability</li>
         </ul>
 
-        <h3 className='text-xl font-light text-muted-foreground'>
+        <h3 className='text-muted-foreground text-xl font-light'>
           Security of Your Personal Data
         </h3>
         <p>
@@ -429,7 +429,7 @@ export default function PrivacyPolicyPage() {
           its absolute security.
         </p>
 
-        <h2 className='text-2xl font-semibold text-foreground'>
+        <h2 className='text-foreground text-2xl font-semibold'>
           Children&apos;s Privacy
         </h2>
         <p>
@@ -448,7 +448,7 @@ export default function PrivacyPolicyPage() {
           information.
         </p>
 
-        <h2 className='text-2xl font-semibold text-foreground'>
+        <h2 className='text-foreground text-2xl font-semibold'>
           Links to Other Websites
         </h2>
         <p>
@@ -462,7 +462,7 @@ export default function PrivacyPolicyPage() {
           privacy policies or practices of any third party sites or services.
         </p>
 
-        <h2 className='text-2xl font-semibold text-foreground'>
+        <h2 className='text-foreground text-2xl font-semibold'>
           Changes to this Privacy Policy
         </h2>
         <p>

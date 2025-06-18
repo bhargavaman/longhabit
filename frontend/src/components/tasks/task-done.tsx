@@ -32,7 +32,7 @@ export function TaskDone({ task }: { task: Task }) {
       )}
       onClick={handleCheck}>
       {doneToday && (
-        <CheckCircledIcon className='size-5 text-primary-foreground' />
+        <CheckCircledIcon className='text-primary-foreground size-5' />
       )}
     </button>
   )

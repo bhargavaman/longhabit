@@ -57,7 +57,7 @@ export default function UploadFileField<T extends FieldValues>({
           <FormControl>
             <div className='flex gap-2'>
               <div className='relative w-full'>
-                <Avatar className='absolute left-2 top-1/2 flex size-6 -translate-y-1/2 items-center justify-center'>
+                <Avatar className='absolute top-1/2 left-2 flex size-6 -translate-y-1/2 items-center justify-center'>
                   <AvatarImage
                     src={
                       value
@@ -83,11 +83,11 @@ export default function UploadFileField<T extends FieldValues>({
                         ? avatar
                         : ''
                   }
-                  className='pl-10 pr-7 disabled:opacity-100'
+                  className='pr-7 pl-10 disabled:opacity-100'
                 />
                 <div
                   role='button'
-                  className='absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer'
+                  className='absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer'
                   onClick={() => {
                     setImageFile(null)
                     setPreviewUrl('delete')

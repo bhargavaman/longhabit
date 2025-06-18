@@ -7,8 +7,8 @@ import { Row } from '@tanstack/react-table'
 export default function TaskColumnDisplay({ row }: { row: Row<Task> }) {
   const { user } = useAuth()
   const globalRemindByEmailEnabled = !!user?.settings?.remindByEmailEnabled
-  const repeatGoalEnabled = row.original.repeatGoalEnabled
-  const daysRepeat = row.original.daysRepeat
+  const daysRepeat = Number(row.original.daysRepeat)
+  const repeatGoalEnabled = daysRepeat > 0 && row.original.repeatGoalEnabled
   const remindByEmail = row.original.remindByEmail
   const willSendEmailReminder =
     globalRemindByEmailEnabled && repeatGoalEnabled && remindByEmail
@@ -16,7 +16,7 @@ export default function TaskColumnDisplay({ row }: { row: Row<Task> }) {
 
   return (
     <div>
-      <p className='text-left text-sm font-light text-muted-foreground'>
+      <p className='text-muted-foreground text-left text-sm font-light'>
         {taskName}
       </p>
       <p
@@ -28,7 +28,7 @@ export default function TaskColumnDisplay({ row }: { row: Row<Task> }) {
           ? `every ${daysRepeat} day${daysRepeat === 1 ? '' : 's'}`
           : 'no goal'}
         {willSendEmailReminder && (
-          <EnvelopeClosedIcon className='size-2.5 text-muted-foreground' />
+          <EnvelopeClosedIcon className='text-muted-foreground size-2.5' />
         )}
       </p>
     </div>

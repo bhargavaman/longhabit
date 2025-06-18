@@ -10,13 +10,13 @@ export default function Navigation() {
 
   return (
     <nav className='flex items-center justify-between'>
-      <Link to='/' className='focus:outline-none'>
+      <Link to='/' className='focus:outline-hidden'>
         <LongHabitMainLogo />
       </Link>
       <Link
         aria-label='user account or log in'
         to={verified ? '/tasks/settings' : '/login'}
-        className='focus:outline-none'>
+        className='focus:outline-hidden'>
         <Avatar className='flex size-10 items-center justify-center'>
           {avatar && !location.search.logout ? (
             <AvatarImage

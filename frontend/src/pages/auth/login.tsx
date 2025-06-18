@@ -28,7 +28,7 @@ export default function LoginPage() {
   return (
     <main className='mx-auto flex w-full max-w-[350px] flex-col items-center gap-y-4'>
       <h2 className='mt-4 text-4xl font-bold'>Log In</h2>
-      <p className='text-center text-xl font-light text-muted-foreground'>
+      <p className='text-muted-foreground text-center text-xl font-light'>
         Sign in to your account
       </p>
       <Form {...form}>
@@ -38,7 +38,7 @@ export default function LoginPage() {
           <InputField form={form} name='email' type='email' />
           <PasswordField form={form} name='password' />
 
-          <Link to='/forgot-password' className='ml-auto text-sm text-primary'>
+          <Link to='/forgot-password' className='text-primary ml-auto text-sm'>
             Forgot password
           </Link>
           <Button

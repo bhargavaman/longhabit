@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className='mt-auto flex w-full flex-col pt-4'>
       <ScrollToTopButton />
-      <div className='grid select-none grid-cols-1 gap-1 px-2 text-xs text-muted-foreground md:grid-cols-3'>
+      <div className='text-muted-foreground grid grid-cols-1 gap-1 px-2 text-xs select-none md:grid-cols-3'>
         <p className='text-center md:text-left'>
           © {new Date().getFullYear()}{' '}
           <a target='_blank' rel='noreferrer' href='https://spweb.dev'>

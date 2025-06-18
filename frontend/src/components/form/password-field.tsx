@@ -51,12 +51,12 @@ export default function PasswordField<T extends FieldValues>({
             {!!field.value.length && (
               <div
                 role='button'
-                className='absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer'
+                className='absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer'
                 onClick={() => setIsVisible((current) => !current)}>
                 {isVisible ? (
-                  <EyeOpenIcon className='size-4 text-muted-foreground' />
+                  <EyeOpenIcon className='text-muted-foreground size-4' />
                 ) : (
-                  <EyeClosedIcon className='size-4 text-muted-foreground' />
+                  <EyeClosedIcon className='text-muted-foreground size-4' />
                 )}
               </div>
             )}
