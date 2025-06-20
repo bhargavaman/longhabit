@@ -10,7 +10,7 @@ Long Habit is a simple CRUD application for tracking long-term habits and recurr
 
 Try the live version: https://longhabit.com
 
-## ✨ Key Features
+## Key Features
 
 ### Backend Architecture
 - Running the latest version of Pocketbase (v0.28).
@@ -50,7 +50,7 @@ Try the live version: https://longhabit.com
 - Docker Compose deployment that works out of the box. Working health check endpoint included.
 - Ready for deployment on Dokploy, Coolify and similar platforms.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**
   - [TypeScript](https://www.typescriptlang.org/docs/) - Frontend language
@@ -72,7 +72,7 @@ Try the live version: https://longhabit.com
   - [Docker](https://docs.docker.com/reference/) - Containerization tool
   - [Dokploy](https://dokploy.com) - Open source hosting platform
 
-## 🚦 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Go 1.24+
@@ -100,6 +100,6 @@ Try the live version: https://longhabit.com
 ### Docker Deployment
 - Build and run with Docker Compose `npm run compose` or `bun run compose`
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
