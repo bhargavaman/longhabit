@@ -8,7 +8,7 @@ export function checkUserIsLoggedIn() {
 }
 
 export function checkEmailIsVerified() {
-  return pb.authStore.model?.verified
+  return pb.authStore.record?.verified
 }
 
 export function checkVerifiedUserIsLoggedIn() {
@@ -36,7 +36,7 @@ export async function createNewUser(newUserData: {
 
 export async function verifyEmailByToken(token: string) {
   await pb.collection('users').confirmVerification(token, { requestKey: null })
-  if (pb.authStore.model) await authRefresh()
+  if (pb.authStore.record) await authRefresh()
 }
 
 export async function loginWithPassword(email: string, password: string) {
@@ -70,8 +70,8 @@ export async function confirmPasswordReset(
   await pb
     .collection('users')
     .confirmPasswordReset(token, password, passwordConfirm)
-  if (pb.authStore.model)
-    await loginWithPassword(pb.authStore.model.email, password)
+  if (pb.authStore.record)
+    await loginWithPassword(pb.authStore.record.email, password)
 }
 
 export async function subscribeToUserChanges(
@@ -113,12 +113,12 @@ export const userQueryOptions = queryOptions({
 
     const settings = await pb
       .collection('settings')
-      .getFirstListItem(`user="${pb.authStore.model?.id}"`)
+      .getFirstListItem(`user="${pb.authStore.record?.id}"`)
 
     setTheme(settings.theme)
 
     const userData = userWithSettingsSchema.parse({
-      ...pb.authStore.model,
+      ...pb.authStore.record,
       settings
     })
 

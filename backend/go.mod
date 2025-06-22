@@ -4,7 +4,7 @@ go 1.24.0
 
 require (
 	github.com/alitto/pond/v2 v2.3.4
-	github.com/pocketbase/pocketbase v0.28.3
+	github.com/pocketbase/pocketbase v0.28.4
 )
 
 require (

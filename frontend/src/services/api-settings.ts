@@ -3,7 +3,7 @@ import { loginWithPassword } from './api-auth'
 import { pb } from './pocketbase'
 
 export async function getSettings(userId?: string) {
-  userId ??= pb.authStore.model?.id
+  userId ??= pb.authStore.record?.id
 
   const settings = await pb
     .collection('settings')
