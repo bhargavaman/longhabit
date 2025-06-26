@@ -48,10 +48,10 @@ export const columns: ColumnDef<Task>[] = [
       return (
         <Button
           variant='ghost'
-          className='gap-x-0 pl-0 text-sm hover:bg-transparent'
+          className='-ml-12 gap-x-0 pl-0 text-sm hover:bg-transparent'
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          Task
           <CaretSortIcon />
+          Task / Goal
         </Button>
       )
     },
@@ -130,7 +130,7 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
 
   return (
     <div className='w-full'>
-      <div className='flex items-center justify-between py-4'>
+      <div className='flex items-center justify-between py-2'>
         <Input
           placeholder='Filter tasks...'
           className='rounded-r-none focus-visible:ring-0'
@@ -148,7 +148,7 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
           onValueChange={setCategoryFilter}>
           <SelectTrigger
             aria-label='Filter by category'
-            className='w-32 rounded-l-none border-l-0 select-none focus:ring-0 focus-visible:ring-0'
+            className='w-32 cursor-pointer rounded-l-none border-l-0 select-none focus:ring-0 focus-visible:ring-0'
             onKeyDown={(event) =>
               event.key === 'Escape' && setCategoryFilter('All')
             }>
@@ -156,9 +156,14 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value='All'>All</SelectItem>
+              <SelectItem value='All' className='cursor-pointer'>
+                All
+              </SelectItem>
               {categories.map((category, index) => (
-                <SelectItem key={`${category}-${index}`} value={category!}>
+                <SelectItem
+                  key={`${category}-${index}`}
+                  value={category!}
+                  className='cursor-pointer'>
                   {category}
                 </SelectItem>
               ))}
@@ -166,10 +171,10 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
           </SelectContent>
         </Select>
         <Button
-          className='ml-2 size-10 rounded-full'
+          className='ml-2 size-8 rounded-full'
           aria-label='Add new task'
           onClick={() => navigate({ to: '/tasks/new' })}>
-          <PlusIcon className='scale-125' />
+          <PlusIcon />
         </Button>
       </div>
       <div className='space-y-4'>
