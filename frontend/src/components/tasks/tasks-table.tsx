@@ -48,7 +48,7 @@ export const columns: ColumnDef<Task>[] = [
       return (
         <Button
           variant='ghost'
-          className='-ml-12 gap-x-0 pl-0 text-sm hover:bg-transparent'
+          className='-ml-9 gap-x-0 pl-0 text-sm hover:bg-transparent'
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
           <CaretSortIcon />
           Task / Goal
@@ -189,7 +189,7 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
                     <TableHead
                       key={header.id}
                       className={cn(
-                        'px-2',
+                        'px-0',
                         columnIndex === 0 ? 'w-9' : 'w-fit'
                       )}>
                       {header.isPlaceholder
@@ -216,7 +216,7 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
                     <TableCell
                       key={cell.id}
                       className={cn(
-                        'px-2 py-1',
+                        'px-1 py-1',
                         index === 0 && 'rounded-l-md',
                         index === array.length - 1 && 'rounded-r-md'
                       )}>

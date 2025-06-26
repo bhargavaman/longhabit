@@ -76,13 +76,13 @@ Try the live version: https://longhabit.com
 
 ### Prerequisites
 - Go 1.24+
-- Node.js 20+ or Bun
+- Node.js 22+ or Bun
 - Docker (optional)
 
 ### Installation
 
 - Clone the repository `git clone https://github.com/s-petr/longhabit`
-- Install dependencies `npm install --legacy-peer-deps` or `bun install`. The `--legacy-peer-deps` tag will silence peer dependency conflicts in NPM. The UI library shadcn.ui uses an older version of react-day-picker for the calendar. It works fine but will throw a dependency conflict with React 19. This is a temporary issue that will go away with future updates.
+- Install dependencies `npm install` or `bun install`.
 - Create a new superuser (admin) account for the Pocketbase admin dashboard. First compile the binary `npm run build` or `bun run build`. Then run the command `./longhabit superuser upsert {{admin email}} {{admin password}}`
 - Once the PocketBase backend is up and running you need to set up the database tables. Log in to the Pocketbase dashboard `http://localhost:8090/_/` using your superuser credentials. Go to Settings -> Import collections -> Load from JSON file. Select file [backend/pb_schema.json](backend/pb_schema.json) and import it.
 - In order for the "Sign in with Google" button to work you need to register with Google Cloud and get Google OAuth 2.0 API credentials (you can follow this [guide](https://support.google.com/googleapi/answer/6158849?hl=en)). After you get the credentials, go to the Pocketbase dashboard Collections -> Users -> Edit collection -> OAuth2 -> Add provider -> Google. Enter your Client ID and Client Secret and save.
