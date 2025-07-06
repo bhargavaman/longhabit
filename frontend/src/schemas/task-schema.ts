@@ -1,5 +1,5 @@
 import { isValid, parse } from 'date-fns'
-import { z } from 'zod'
+import { z } from 'zod/v4'
 import { pbIdSchema } from './pb-schema'
 
 export const taskHistoryDateSchema = z.string().refine((date) => {

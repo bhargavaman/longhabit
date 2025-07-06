@@ -13,7 +13,7 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { useEffect } from 'react'
-import { z } from 'zod'
+import { z } from 'zod/v4'
 import Spinner from './components/shared/spinner'
 import { setTheme } from './lib/set-theme'
 import ForgotPasswordPage from './pages/auth/forgot-password'

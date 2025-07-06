@@ -25,7 +25,7 @@ export function TaskDone({ task }: { task: Task }) {
       type='button'
       aria-label='Mark as done'
       className={cn(
-        'flex size-8 items-center justify-center rounded-full transition-all duration-75 ease-in-out',
+        'flex size-8 cursor-pointer items-center justify-center rounded-full transition-all duration-75 ease-in-out',
         doneToday
           ? 'bg-primary hover:bg-primary/90'
           : 'bg-secondary/75 hover:bg-secondary'
