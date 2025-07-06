@@ -10,12 +10,18 @@ export default function HomePage() {
           Long<span className='text-primary'> Habit</span>
         </h1>
         <h2 className='text-2xl font-semibold'>
-          The perfect tracker for tasks that don&apos;t get daily attention
+          Effective tracking for long-term habits
         </h2>
         <p className='text-muted-foreground text-xl font-light'>
-          Daily habits are easy to remember, but what about those important
-          tasks that come up every few weeks or months? Long Habit helps you
-          stay on top of these easily forgotten but crucial routines.
+          Inspired by research from James Clear&apos;s bestseller{' '}
+          <a
+            target='_blank'
+            rel='noreferrer'
+            href='https://jamesclear.com/atomic-habits'>
+            Atomic Habits
+          </a>
+          , Long Habit makes managing recurring tasks straightforward and
+          enjoyable, helping you build lasting routines with ease.
         </p>
       </section>
 
