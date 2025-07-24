@@ -17,6 +17,7 @@ export default function HomePage() {
           <a
             target='_blank'
             rel='noreferrer'
+            className='hover:underline'
             href='https://jamesclear.com/atomic-habits'>
             Atomic Habits
           </a>
