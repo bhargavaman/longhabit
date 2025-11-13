@@ -3,9 +3,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: var(--font-sans), sans-serif;
-  --font-mono: var(--font-mono), monospace;
-
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
@@ -65,7 +62,7 @@
   }
 
   :root {
-    --font-sans: Inter;
+    --font-sans: Inter, sans-serif;
 
     --background: 275 1% 95%;
     --foreground: 275 1% 10%;
@@ -90,7 +87,7 @@
   }
 
   .dark {
-    --font-sans: Inter;
+    --font-sans: Inter, sans-serif;
 
     --background: 275 5% 10%;
     --foreground: 275 1% 80%;
