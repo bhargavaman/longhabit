@@ -75,8 +75,8 @@ Try the live version: https://longhabit.com
 ## Getting Started
 
 ### Prerequisites
-- Go 1.26+
-- Node.js 25+ or Bun 1.3+
+- Go 1.27+
+- Node.js 26+ or Bun 1.3+
 - Docker (optional)
 
 ### Installation

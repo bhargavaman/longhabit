@@ -1,10 +1,11 @@
 import { Task, TaskHistoryDate } from '@/schemas/task-schema'
-import { Row } from '@tanstack/react-table'
+import { SortFn } from '@tanstack/react-table'
 import {
   differenceInCalendarDays,
   format,
   formatDistanceStrict
 } from 'date-fns'
+import { TasksTableFeatures } from '../components/tasks/tasks-table-features'
 import { getNextDueDate, stringToDate } from './date-convert'
 
 export function getTaskStatusLabels(
@@ -64,7 +65,11 @@ export function getTaskStatusLabels(
   return { dateText, daysText, taskIsLate }
 }
 
-export function sortTaskStatusColumn(rowA: Row<Task>, rowB: Row<Task>) {
+export const sortTaskStatusColumn: SortFn<TasksTableFeatures, Task> = (
+  rowA,
+  rowB,
+  _columnId
+) => {
   const today = new Date()
 
   if (rowA.original.repeatGoalEnabled !== rowB.original.repeatGoalEnabled) {

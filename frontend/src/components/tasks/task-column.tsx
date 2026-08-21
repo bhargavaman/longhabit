@@ -1,10 +1,15 @@
+import { TasksTableFeatures } from '@/components/tasks/tasks-table-features'
 import useAuth from '@/hooks/use-auth'
 import { cn } from '@/lib/shadcn'
 import { Task } from '@/schemas/task-schema'
 import { EnvelopeClosedIcon } from '@radix-ui/react-icons'
 import { Row } from '@tanstack/react-table'
 
-export default function TaskColumnDisplay({ row }: { row: Row<Task> }) {
+export default function TaskColumnDisplay({
+  row
+}: {
+  row: Row<TasksTableFeatures, Task>
+}) {
   const { user } = useAuth()
   const globalRemindByEmailEnabled = !!user?.settings?.remindByEmailEnabled
   const daysRepeat = Number(row.original.daysRepeat)

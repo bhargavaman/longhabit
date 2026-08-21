@@ -1,3 +1,7 @@
+import {
+  TasksTableFeatures,
+  tasksTableFeatures
+} from '@/components/tasks/tasks-table-features'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -21,80 +25,16 @@ import { getTaskStatusLabels, sortTaskStatusColumn } from '@/lib/task-status'
 import { CaretSortIcon, PlusIcon } from '@radix-ui/react-icons'
 import { useNavigate } from '@tanstack/react-router'
 import {
-  ColumnDef,
   SortingState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getSortedRowModel,
-  useReactTable
+  createColumnHelper,
+  useTable
 } from '@tanstack/react-table'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Task } from '../../schemas/task-schema'
 import TaskColumnDisplay from './task-column'
 import { TaskDone } from './task-done'
 
-export const columns: ColumnDef<Task>[] = [
-  {
-    accessorKey: 'done',
-    header: () => '',
-    cell: ({ row }) => {
-      return <TaskDone task={row.original} />
-    }
-  },
-  {
-    accessorKey: 'name',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant='ghost'
-          className='-ml-9 gap-x-0 pl-0 text-sm hover:bg-transparent'
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          <CaretSortIcon />
-          Task / Goal
-        </Button>
-      )
-    },
-    cell: TaskColumnDisplay
-  },
-  {
-    accessorKey: 'nextDate',
-    header: ({ column }) => {
-      return (
-        <div className='flex w-full justify-end'>
-          <Button
-            variant='ghost'
-            className='gap-x-0 pr-0 text-sm hover:bg-transparent'
-            onClick={() =>
-              column.toggleSorting(column.getIsSorted() === 'asc')
-            }>
-            Status
-            <CaretSortIcon />
-          </Button>
-        </div>
-      )
-    },
-    cell: ({ row }) => {
-      const { dateText, daysText, taskIsLate } = getTaskStatusLabels(
-        row.original.repeatGoalEnabled,
-        Number(row.original.daysRepeat),
-        row.original.history
-      )
-
-      return (
-        <div className='text-right'>
-          <p className='text-muted-foreground text-sm font-light whitespace-nowrap'>
-            {dateText}
-          </p>
-          <p className={cn('text-xs', taskIsLate ? 'text-destructive' : '')}>
-            {daysText}
-          </p>
-        </div>
-      )
-    },
-    sortingFn: sortTaskStatusColumn
-  }
-]
+const columnHelper = createColumnHelper<TasksTableFeatures, Task>()
 
 export function TasksTable({ tasks }: { tasks: Task[] }) {
   tasks ??= []
@@ -103,13 +43,77 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null)
   const navigate = useNavigate()
 
-  const table = useReactTable({
+  const columns = useMemo(
+    () =>
+      columnHelper.columns([
+        columnHelper.display({
+          id: 'done',
+          header: () => '',
+          cell: ({ row }) => {
+            return <TaskDone task={row.original} />
+          }
+        }),
+        columnHelper.accessor('name', {
+          header: ({ column }) => {
+            return (
+              <Button
+                variant='ghost'
+                className='-ml-9 gap-x-0 pl-0 text-sm hover:bg-transparent'
+                onClick={column.getToggleSortingHandler()}>
+                <CaretSortIcon />
+                Task / Goal
+              </Button>
+            )
+          },
+          cell: ({ row }) => <TaskColumnDisplay row={row} />
+        }),
+        columnHelper.accessor('history', {
+          header: ({ column }) => {
+            return (
+              <div className='flex w-full justify-end'>
+                <Button
+                  variant='ghost'
+                  className='gap-x-0 pr-0 text-sm hover:bg-transparent'
+                  onClick={column.getToggleSortingHandler()}>
+                  Status
+                  <CaretSortIcon />
+                </Button>
+              </div>
+            )
+          },
+          cell: ({ row }) => {
+            const { dateText, daysText, taskIsLate } = getTaskStatusLabels(
+              row.original.repeatGoalEnabled,
+              Number(row.original.daysRepeat),
+              row.original.history
+            )
+
+            return (
+              <div className='text-right'>
+                <p className='text-muted-foreground text-sm font-light whitespace-nowrap'>
+                  {dateText}
+                </p>
+                <p
+                  className={cn(
+                    'text-xs',
+                    taskIsLate ? 'text-destructive' : ''
+                  )}>
+                  {daysText}
+                </p>
+              </div>
+            )
+          },
+          sortFn: sortTaskStatusColumn
+        })
+      ]),
+    []
+  )
+
+  const table = useTable({
+    features: tasksTableFeatures,
     data: tasks,
     columns,
     onSortingChange: setSorting,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
     onRowSelectionChange: setRowSelection,
     state: {
       sorting,
@@ -192,12 +196,9 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
                         'px-0',
                         columnIndex === 0 ? 'w-9' : 'w-fit'
                       )}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                      {header.isPlaceholder ? null : (
+                        <table.FlexRender header={header} />
+                      )}
                     </TableHead>
                   )
                 })}
@@ -220,10 +221,7 @@ export function TasksTable({ tasks }: { tasks: Task[] }) {
                         index === 0 && 'rounded-l-md',
                         index === array.length - 1 && 'rounded-r-md'
                       )}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
+                      <table.FlexRender cell={cell} />
                     </TableCell>
                   ))}
                 </TableRow>

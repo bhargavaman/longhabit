@@ -36,9 +36,9 @@ export type AuthSystemFields<T = never> = {
 // Record types for each collection
 
 export enum SettingsThemeOptions {
-  'system' = 'system',
-  'light' = 'light',
-  'dark' = 'dark'
+  system = 'system',
+  light = 'light',
+  dark = 'dark'
 }
 export type SettingsRecord = {
   remindByEmailEnabled?: boolean

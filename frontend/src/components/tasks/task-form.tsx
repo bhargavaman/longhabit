@@ -165,7 +165,7 @@ export default function TaskForm({
                 </Button>
               </DialogTrigger>
               <DialogContent
-                className='bg-popover sm:max-w-[300px]'
+                className='bg-popover sm:max-w-75'
                 onKeyDown={(event) =>
                   event.key === 'Enter' && deleteTask(selectedTask)
                 }>
